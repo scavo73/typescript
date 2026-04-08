@@ -32,8 +32,8 @@ export function generarReporte(estado: EstadoMatricula): string {
       return `Matrícula finalizada con nota media ${estado.notaMedia}.`;
 
     default: {
-      const casoInesperado: never = estado;
-      return casoInesperado;
+      const estadoNoControlado: never = estado;
+      throw new Error(`Estado no manejado: ${JSON.stringify(estadoNoControlado)}`);
     }
   }
 }
