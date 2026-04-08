@@ -37,3 +37,4 @@ export function generarReporte(estado: EstadoMatricula): string {
     }
   }
 }
+

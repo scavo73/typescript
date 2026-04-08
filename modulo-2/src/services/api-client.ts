@@ -4,7 +4,7 @@ import type { Asignatura } from "../domain/types/asignatura.js";
 interface RespuestaAPI<T> {
     codigoEstado: number;
     exito: boolean;
-    datos: T;          // El payload dependerá del contexto
+    datos: T | null;
     errores?: string[];
   }
 
@@ -33,7 +33,7 @@ interface RespuestaAPI<T> {
     }
   ];
   
-  const baseDatosMock: Record<string, unknown> = {
+  const baseDatosMock : Record<string, unknown> = {
     "/estudiantes": estudiantesMock,
     "/asignaturas": asignaturasMock
   };
@@ -59,7 +59,7 @@ interface RespuestaAPI<T> {
     }
   
     const candidato = valor as Asignatura;
-  
+
     return (
       typeof candidato.id === "string" &&
       typeof candidato.nombre === "string"
@@ -113,4 +113,7 @@ interface RespuestaAPI<T> {
         }, 800);
       });
     }
+    
   }
+
+  
